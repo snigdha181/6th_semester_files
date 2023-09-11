@@ -1,0 +1,16 @@
+clc;
+clear all;
+close all;
+img1=imread("images/cameraman.tif");
+for i=1:256
+    for j=1:256
+        ifimg1(i,j)>128
+            m=1;
+        else
+            m(i,j)=0
+        end
+            
+            
+        end
+    end
+        

@@ -1,0 +1,16 @@
+clc;
+clear all;
+close all;
+img=imread("images/Tulips.jpg");
+r=img(:,:,1);
+g=img(:,:,2);
+b=img(:,:,3);
+%imshow(img)
+
+subplot(2,2,1)
+imshow();
+title('cameraman orginal')
+
+subplot(2,2,2)
+imshow(bw);
+title('cameraman after edit')
