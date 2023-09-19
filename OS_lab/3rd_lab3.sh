@@ -1,0 +1,10 @@
+echo "Batch 1"
+
+echo "Filename : $0"
+echo "Process ID : $$"
+echo "First Argument: $1"
+echo "Second Argument: $2"
+echo "Third Argument: $3"
+echo "Quaoted Value: $@"
+echo "Quaoted Value: $*"
+echo "all parameter: $#"
