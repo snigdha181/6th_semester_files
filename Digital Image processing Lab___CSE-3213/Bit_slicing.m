@@ -2,7 +2,7 @@ clc;
 close all;
 clear all;
 
-img=imread("images/cameraman.tif");
+img=imread("Image for DIP Lab\Tulips.jpg");
 [r,c]=size(img);
 for i=1:r
     for j=1:c
