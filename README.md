@@ -1,3 +1,2 @@
 # 6th_semester_codes
-Matlab for Digital Image Processing Lab
-Codeblocks for Numerical Methods Lab
+Here is the 3rd year Second semester codes. # Matlab codes........# Numerical Methods Codes......# Conpiler Design Codes.......# Operating system Codes........
