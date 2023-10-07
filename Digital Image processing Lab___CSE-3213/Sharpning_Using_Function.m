@@ -1,0 +1,20 @@
+clc;
+clear all;
+close all;
+
+a=imread("cameraman.tif");
+b=imsharpen(a);
+c=imread("eight.tif");
+d=imsharpen(c);
+e=imread("images/Tulips.jpg");
+f=imsharpen(e);
+g=imread("images/jellyfish.jpg");
+h=imsharpen(g);
+subplot(241);imshow(a);title("Original Image");
+subplot(245);imshow(b);title("Sharpning Image");
+subplot(242);imshow(c);title("Original Image");
+subplot(246);imshow(d);title("Sharpning Image");
+subplot(243);imshow(e);title("Original Image");
+subplot(247);imshow(f);title("Sharpning Image");
+subplot(244);imshow(g);title("Original Image");
+subplot(248);imshow(h);title("Sharpning Image");
