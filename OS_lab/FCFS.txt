@@ -1,0 +1,95 @@
+CODE:
+-----
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ifstream input_file("input.txt");
+    vector<int> p, arv, bt;
+    int id, arrival_time, burst_time;
+    string process_name, header;
+    vector <string> prcs;
+    getline(input_file, header);
+    int n = 0;
+    while (input_file >> id >> process_name >> burst_time >> arrival_time) {
+        n++;
+        p.push_back(id);
+        prcs.push_back(process_name);
+        bt.push_back(burst_time);
+        arv.push_back(arrival_time);
+    }
+    vector <int> comp(n, 0);
+    vector <int> wt(n, 0);
+    vector <int> tat(n, 0);
+    input_file.close();
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n-1-i; j++){
+            if(arv[j] > arv[j+1]){
+                swap(arv[j], arv[j+1]);
+                swap(bt[j], bt[j+1]);
+                swap(prcs[j], prcs[j+1]);
+                swap(p[j], p[j+1]);
+            }
+        }
+    }
+
+    comp[0] = arv[0] + bt[0];
+    tat[0] = comp[0] - arv[0];
+    wt[0] = tat[0] - bt[0];
+    for(int i=1; i<n; i++){
+        if(arv[i] > comp[i-1]) comp[i] = arv[i] + bt[i];
+        else comp[i] = comp[i-1] + bt[i];
+        tat[i] = comp[i] - arv[i];
+        wt[i] = tat[i] - bt[i];
+    }
+
+    cout << "PRCS\tArvT\tBrstT\tCompT\tWtngT\tTurnT\n";
+    for(int i=0; i<n; i++){
+        cout << prcs[i] << "\t" << arv[i] << "\t" << bt[i] << "\t" << comp[i] << "\t" << wt[i] << "\t" << tat[i] << endl;
+    }
+
+    double avgwt = (double)accumulate(wt.begin(), wt.end(), 0) / n;
+    double avgtat = (double)accumulate(tat.begin(), tat.end(), 0) / n;
+    printf("Avg Waiting time: %.2lf\n", avgwt);
+    printf("Avg Turnaround time: %.2lf\n", avgtat);
+
+    return 0;
+}
+
+INPUT:
+------
+
+ID	Pr      BT      AT
+1       P1      7	2
+2	P2	12	5
+3	P3	2	1
+4	P4	15	0
+5	P5	3	7
+6	P6	6	3
+7	P7	25	9
+8	P8	10	4
+9	P9	9	6
+10	P10	14	11
+11	P11	17	10
+12	P12     27      8
+
+
+OUTPU:
+------
+
+PRCS	       ArvT	       BrstT	       CompT	      WtngT	      TurnT
+P4		0		15		15		0		15
+P3		1		2		17		14		16
+P1		2		7		24		15		22
+P6		3		6		30		21		27
+P8		4		10		40		26		36
+P2		5		12		52		35		47
+P9		6		9		61		46		55
+P5		7		3		64		54		57
+P12		8		27		91		56		83
+P7		9		25		116		82		107
+P11		10		17		133		106		123
+P10		11		14		147		122		136
+Avg Waiting time: 48.08
+Avg Turnaround time: 60.33
