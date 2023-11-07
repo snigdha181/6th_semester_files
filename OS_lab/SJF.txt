@@ -1,0 +1,102 @@
+CODE:
+-----
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    ifstream input_file("input.txt");
+    vector<int> p, arv, bt;
+    int id, arrival_time, burst_time;
+    string process_name, header;
+    vector <string> prcs;
+    getline(input_file, header);
+    int n = 0;
+    while (input_file >> id >> process_name >> burst_time >> arrival_time) {
+        n++;
+        p.push_back(id);
+        prcs.push_back(process_name);
+        bt.push_back(burst_time);
+        arv.push_back(arrival_time);
+    }
+    vector <int> comp(n, 0);
+    vector <int> wt(n, 0);
+    vector <int> tat(n, 0);
+    input_file.close();
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (bt[j] > bt[j + 1]) {
+                swap(p[j], p[j + 1]);
+                swap(arv[j], arv[j + 1]);
+                swap(bt[j], bt[j + 1]);
+                swap(prcs[j], prcs[j+1]);
+            }
+        }
+    }
+
+    int mn = arv[0], d;
+    for(int i=0; i<n; i++){
+        if(mn > arv[i]){
+            mn = arv[i];
+            d  = i;
+        }
+    }
+    comp[d] = bt[d] + arv[d];
+    mn = comp[d];
+
+    for(int i=0; i<n; i++){
+        if(i != d){
+            comp[i] = bt[i] + mn;
+            mn = comp[i];
+        }
+        tat[i] = comp[i] - arv[i];
+        wt[i] = tat[i] - bt[i];
+    }
+
+    cout << "PRCS\tArvT\tBrstT\tCompT\tTurnT\tWtngT\n";
+    for(int i=0; i<n; i++){
+        cout << "P" << p[i] <<"\t" << arv[i] << "\t"  << bt[i] << "\t" << comp[i] << "\t" << tat[i] << "\t" << wt[i] << endl;
+    }
+    double avgwt = (double)accumulate(wt.begin(), wt.end(), 0) / n;
+    double avgtat = (double)accumulate(tat.begin(), tat.end(), 0) / n;
+    printf("Avg Waiting time: %.2lf\n", avgwt);
+    printf("Avg Turnaround time: %.2lf\n", avgtat);
+    return 0;
+}
+
+
+INPUT:
+------
+ID	Pr      BT     AT
+1       P1      7	2
+2	P2	12	5
+3	P3	2	1
+4	P4	15	0
+5	P5	3	7
+6	P6	6	3
+7	P7	25	9
+8	P8	10	4
+9	P9	9	6
+10	P10	14	11
+11	P11	17	10
+12	P12     27       8
+
+OUTPUT:
+-------
+
+PRCS	ArvT	BrstT	CompT	TurnT	WtngT
+P3		1		2		17		16		14
+P5		7		3		20		13		10
+P6		3		6		26		23		17
+P1		2		7		33		31		24
+P9		6		9		42		36		27
+P8		4		10		52		48		38
+P2		5		12		64		59		47
+P10		11		14		78		67		53
+P4		0		15		15		15		0
+P11		10		17		95		85		68
+P7		9		25		120		111		86
+P12		8		27		147		139		112
+Avg Waiting time: 41.33
+Avg Turnaround time: 53.58
+
+
