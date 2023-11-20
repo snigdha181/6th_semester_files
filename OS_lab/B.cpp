@@ -35,7 +35,7 @@ int main()
         }
     }
     int total_allocated=0,resources=12;
-    for(i=0; i<r; i++)
+    for(i=0; i<r-1; i++)
     {
         for(j=0; j<c; j++)
         {
