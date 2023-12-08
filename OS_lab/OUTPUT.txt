@@ -1,0 +1,116 @@
+
+				**  First Come First Serve Scheduling  **
+
+Process	  Arrival_Time	   Burst_Time	  Compile_Time	  Waiting_Time	  Turnaround_Time	  Working
+P4		0		15		15		0		15		***************
+P3		1		2		17		14		16		**
+P1		2		7		24		15		22		*******
+P6		3		6		30		21		27		******
+P8		4		10		40		26		36		**********
+P2		5		12		52		35		47		************
+P9		6		9		61		46		55		*********
+P5		7		3		64		54		57		***
+P12		8		27		91		56		83		***************************
+P7		9		25		116		82		107		*************************
+P11		10		17		133		106		123		*****************
+P10		11		14		147		122		136		**************
+
+Average Waiting time: 48.0833
+Average Turnaround time: 60.3333
+
+
+				**  Shortest Job First Scheduling  **
+
+Process	  Arrival_Time	   Burst_Time	  Compile_Time	  Waiting_Time	  Turnaround_Time	  Working
+P3		1		2		3		0		2		**
+P5		7		3		6		-4		-1		***
+P6		3		6		12		3		9		******
+P1		2		7		19		10		17		*******
+P9		6		9		28		13		22		*********
+P8		4		10		38		24		34		**********
+P2		5		12		50		33		45		************
+P10		11		14		64		39		53		**************
+P4		0		15		79		64		79		***************
+P11		10		17		96		69		86		*****************
+P7		9		25		121		87		112		*************************
+P12		8		27		148		113		140		***************************
+
+Average Waiting time: 37.5833
+Average Turnaround time: 49.8333
+
+
+					**  Priority Scheduling  **
+
+Process	  Arrival_Time	   Burst_Time	  Compile_Time	  Waiting_Time	  Turnaround_Time	  Working
+P1		2		7		9		0		7		*******
+P6		3		6		15		6		12		******
+P3		1		2		17		14		16		**
+P8		4		10		27		13		23		**********
+P12		8		27		54		19		46		***************************
+P5		7		3		57		47		50		***
+P10		11		14		71		46		60		**************
+P9		6		9		80		65		74		*********
+P7		9		25		105		71		96		*************************
+P11		10		17		122		95		112		*****************
+P2		5		12		134		117		129		************
+P4		0		15		149		134		149		***************
+
+Average Waiting time: 52.25
+Average Turnaround time: 64.5
+
+
+					**  Round Robin Scheduling  **
+
+
+Working Process
+For P1 - 5		
+For P6 - 5		
+For P3 - 2		
+For P8 - 5		
+For P12 - 3		
+For P5 - 5		
+For P10 - 5		
+For P9 - 5		
+For P7 - 5		
+For P11 - 5		
+For P2 - 5		
+For P4 - 5		
+For P1 - 2		
+For P6 - 5		
+For P8 - 5		
+For P5 - 1		
+For P10 - 5		
+For P9 - 5		
+For P7 - 4		
+For P11 - 5		
+For P2 - 5		
+For P4 - 5		
+For P6 - 2		
+For P8 - 5		
+For P10 - 5		
+For P11 - 4		
+For P2 - 5		
+For P4 - 5		
+For P10 - 5		
+For P2 - 2		
+For P4 - 5		
+For P10 - 5		
+For P4 - 5		
+For P4 - 2		
+Process	  Arrival_Time	   Burst_Time	  Completion_Time	Waiting_Time	Turnaround_Time
+P1		2		7		57		48		55		
+P6		3		6		99		90		96		
+P3		1		2		12		9		11		
+P8		4		10		104		90		100		
+P12		8		27		20		-15		12		
+P5		7		3		68		58		61		
+P10		11		14		140		115		129		
+P9		6		9		78		63		72		
+P7		9		25		82		48		73		
+P11		10		17		113		86		103		
+P2		5		12		130		113		125		
+P4		0		15		147		132		147		
+
+Average Waiting time: 69.75
+Average Turnaround time: 82
+
