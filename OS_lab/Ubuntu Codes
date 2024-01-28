@@ -1,0 +1,604 @@
+////3rd lab_program__Part_1
+echo "Batch 1"
+
+read ID
+echo $ID
+
+name="Snigdha Saha"
+echo $name
+
+Dept_name="CSE"
+echo $Dept_name
+
+C_name="Operating System"
+echo "We are reading " $C_name
+
+
+
+
+
+////3rd lab_program__Part_2
+echo "Batch 1"
+
+name="OS Lab"
+echo $name
+
+readonly n
+
+n=123
+echo $n
+
+
+
+
+
+////     Parameter  //////
+echo "Batch 1"
+
+echo "Filename : $0"
+echo "Process ID : $$"
+echo "First Argument: $1"
+echo "Second Argument: $2"
+echo "Third Argument: $3"
+echo "Quaoted Value: $@"
+echo "Quaoted Value: $*"
+echo "all parameter: $#"
+
+
+
+
+
+
+
+/////Addition process
+echo "Addition"
+
+echo "First number:$n1"
+read n1
+echo "Second number:$n2"
+read n2
+
+add=$((n1+n2))
+echo "Sum= $add"
+
+
+OR<<<<
+echo "Addition"
+
+n1=5
+n2=6
+sum=$(($n1+$n2))
+echo "Sum= $sum"
+echo "First number: $N1"
+read N1
+echo "Second number: $N2"
+read N2
+add=$((N1+N2))
+echo "Sum= $add"
+
+
+
+
+
+
+
+/////Array
+var[0]=Ant
+var[1]=Ball
+var[2]=Cat
+
+echo "Value: ${var[0]}"
+echo "Value: ${var[*]}"
+echo "Value: ${var[@]}"
+
+
+
+
+
+
+//////Array size
+read var[5]
+for var in ${var[@]}
+do
+echo "The value is $var"
+done
+
+
+or.....
+read array[5]
+echo "the value are: ${array[*]}"
+for var in ${array[@]}
+do
+  echo "The value is $var"
+done
+
+
+
+
+
+
+//////Array sort
+n=(5 6 9 1 2)
+l=${#n[*]}
+
+for ((i=0; i < l - 1; i++));
+do
+  for ((j=0; j < l - i - 1; j++));
+  do 
+    if [[ ${n[j]} -gt ${n[j+1]} ]];
+    then
+      temp=${n[j]}
+      n[j]=${n[j+1]}
+      n[j+1]=$temp
+    fi
+  done
+done
+
+echo "Sorted array"
+for (( i=0; i<l; i++ ));
+do
+  echo ${n[i]}
+done
+
+
+
+
+
+
+
+///////Array sum
+arr[0]=1
+arr[1]=2
+arr[2]=6
+arr[3]=4
+arr[4]=9
+
+for var in ${arr[*]}
+do
+sum=$(($sum+$var))
+done
+echo "Sum = $sum"
+
+read a[6]
+add=0
+for i in ${a[*]}
+do
+add=$((add+i))
+done
+echo "Sum= $add"
+
+
+
+
+
+
+
+//////Associate array
+declare -A arr
+#arr=(1 2 3 4 5)
+arr[asad]=401
+arr[emran]=402
+arr[siam]=403
+
+for key in ${!arr[@]}
+do 
+  
+  echo "$key ==> ${arr[$key]}"
+done
+for value in ${arr[@]}
+do
+echo "$value"
+done
+
+
+
+
+
+
+///////Average 
+for arr in a
+do 
+read a[5]
+sum=0
+for var in ${a[*]}
+do 
+sum=$((sum+var))
+avg=$((sum/5))
+done
+done
+echo $sum
+echo $avg
+
+
+
+
+
+
+
+
+////////CLP-2
+numbers="1 6 5 8 2 6 9 5 8"
+
+# Initialize a variable to store the maximum number
+max=0
+for num in $numbers; do
+    # Compare the current number with the maximum
+    if [ $num -gt $max ]; then
+        max=$num
+    fi
+done
+
+# Print the maximum number
+echo "The maximum number is: $max"
+
+
+
+
+
+
+///////CLP-1
+declare -A arr
+sum=0
+for var in 0 1 2
+do
+read arr[$var]
+echo $var
+sum=$((sum+${arr[$var]}))
+done
+echo "Sum= $sum"
+
+
+
+
+
+
+
+///////CLP-Q2
+declare -A arr
+arr[cse]=124
+arr[eng]=254
+arr[ban]=102
+arr[eco]=365
+m=0
+for i in ${arr[@]}
+do 
+  if [ $m -gt $i ]
+  then
+   m=$i
+   fi
+done
+for i in ${!arr[@]}
+do
+if [ $m -eq ${arr[$i]} ]
+then
+ max=$i
+ fi
+done
+echo "The max value is : $max"
+
+
+
+
+
+
+
+
+////////    Condition   ////////
+#only if
+if [ 1 -lt 10 ]
+then
+echo "Condition is true"
+fi  #finish
+
+
+#If_else
+if [  ]
+then 
+echo 
+
+else
+then
+echo 
+
+fi
+
+
+#Elseif
+if [ condition ]
+then
+
+elif [ condition ]
+then
+
+elif [ condition ]
+then
+
+else
+then
+fi
+
+
+
+
+
+
+
+
+
+
+
+///////    Sum using for loop //////
+declare -a arr
+read n
+sum=0
+for ((i=0; i<n; i++))
+do
+read arr[$i]
+done
+for ((i=0; i<n; i++))
+do
+echo ${arr[$i]}
+sum=$((sum+${arr[$i]}))
+done
+echo "Sum = $sum"
+: '
+multiple 
+line
+comment
+'
+echo "Sum"
+
+
+
+
+
+
+
+////////    For loop   ////
+for var in apple 2 * 4 bye
+do
+echo "The value is $var"
+done
+
+
+
+
+///////    For loop (array) //////
+arr[0]=Apple 
+arr[1]=Ball 
+arr[2]=Dog
+
+for var in ${arr[*]}
+
+do 
+echo "Value: $var"
+done
+
+
+
+
+
+
+/////////    Function    ///////
+function hello()
+{
+   echo "Hello world"
+}
+hello
+
+function func_name()
+{
+  #echo "Total Parameter: $#"
+  par1=$1
+  par2=$2
+  
+  sum=$((par1+par2))
+  echo "Sum= $sum"
+}
+ret=`func_name 4 3`
+echo $ret
+res=$((ret + 3))
+echo "Total result: $res"
+
+
+function para()
+{
+  echo "Parameter: $#"
+  echo "$@"
+  sum=0
+  for i in $@
+  do
+  sum=$((sum+i))
+  #i=$((i+1))
+  done
+  echo "$sum"
+}
+para 2 3 4 5 6 7 9 3
+
+
+
+
+
+
+
+
+
+////////    Arithmetic operation  ///////
+ #Single line comment
+: '
+multiple
+line
+comment
+'
+a=5
+b=5
+sum=`expr $a + $b`
+echo $sum
+
+sub=`expr $a - $b`
+echo $sub
+
+mul=`expr $a \* $b`
+echo $mul
+
+div=`expr $a / $b`
+echo $div
+
+
+
+
+
+
+
+////////     Pattern   ///////
+for i in `seq 1 1 5`
+do
+  for j in `seq 1 1 $i`
+  do
+   echo "*\c"
+  done
+  echo
+done
+
+
+
+
+
+
+
+////////   read file    //////
+read_file='cl2.sh'
+while read line;
+do
+ echo "$line"
+done < $read_file  #variable er poriborte ekhane file name o direct deua jabe___like: done < 'function.sh'
+
+cat until.sh
+
+#1 ta file theke onno 1 ta file execute 
+
+chmod +x function.sh
+./function.sh
+
+
+
+
+
+
+/////////     String      ///////
+str='ABC'
+
+if [ $str == 'ABC' ]
+then
+  echo "If $str"
+else
+  echo "Else $str"
+fi
+
+
+
+
+
+
+/////////  until    //////
+i=1
+until [ $i -eq 10 ]
+do
+   echo $i
+   i=$((i+1))
+   done
+   
+   
+   
+   
+   
+   
+   
+/////////      While loop    ////////
+i=1
+while :
+do
+  echo $i
+  i=$((i+1))
+  if [ $i -eq 10 ]
+  then
+   break
+  fi
+done
+   
+
+
+
+
+
+///////    else if      ///////
+A=6
+B=50
+C=9
+if [ $A -gt $B ]
+then
+  if [ $A -gt $C ]
+  then
+    echo "The greatest value is A"
+  else
+    echo "The greatest value is C"
+  fi
+else
+ echo "The greatest value is B"
+fi
+
+
+
+
+
+
+
+
+/////////    if_else        ///////
+str='abc'
+if [ $str == abca ]
+then 
+ echo "Matched"
+else
+ echo "Not Matched"
+fi
+
+
+
+
+
+////////      if then   ////////
+i=1
+while :
+do
+  echo $i
+  i=$((i+1))
+  if [ $i -eq 10 ]
+  then
+   break
+  fi  
+done
+
+
+
+
+
+
+//////    String Declare       //////
+var[0]=a
+var[1]=p
+var[2]=f
+
+echo ${var[*]}
+
+NAME[0]="Zara"
+NAME[1]="Qadir"
+NAME[2]="Mahnaz"
+NAME[3]="Ayan"
+NAME[4]="Daisy"
+
+echo "First Index: ${NAME[0]}"
+echo "Second Index: ${NAME[1]}"
+echo "First Method: ${NAME[*]}"
+echo "Second Method: ${NAME[@]}"
+
