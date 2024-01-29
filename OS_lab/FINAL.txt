@@ -1,0 +1,519 @@
+////       max value      /////
+declare -A arr
+echo "Enter the array inputs: "
+for i in cse bang eng eco
+do
+  read arr[i]
+done
+max=${arr[i]}
+for j in ${!arr[*]}
+do
+  if [ ${arr[j]} > max ]
+  then 
+    max=${arr[j]}
+  fi
+done
+echo "The maximum value: $max"
+
+
+
+
+
+////      list and remove      //////
+ls -l
+#x=$2
+rmdir -r $2
+
+ls -l
+
+
+
+
+
+/////    Array Sum    /////
+declare -a arr
+sum=0
+for i in 1 2 3 4 5
+do
+  read arr[$i]
+  sum=$((sum+arr[i]))
+done
+echo "The sum is : $sum"
+temp=`expr 1+5`
+echo $temp
+
+
+
+
+
+////      If condition    ////
+i=1
+while :
+do
+  echo $i
+  i=$((i+1))
+  if [ $i -eq 10 ] 
+  then 
+  break
+  fi
+done
+ : '
+  ei khetre
+  condition ta sudhu matro mittha holei
+  print korbe
+'
+
+
+
+
+
+
+////    Logical Operation    /////
+logical operation
+
+-gt {greater than}
+-lt {less than}
+-ge {grether or equal}
+-le {less or equal}
+-eq {equal}
+
+-a | && {And Operation}
+-o | || {OR Operation}
+!       {NOT Operation}
+
+For string
+
+==  {Check Equal}
+!=  {Not Equal}
+
+string  {if we write this it will check is the sting is enmpty or not}
+-z      {to check string length is zero or not}
+-n      {to check string lenght is not equal zero or not}
+
+
+
+
+
+
+
+////    C type for loop use kore sum    /////
+declare -a arr
+sum=0
+read n
+for (( i=0; i<n; i++ ))
+do
+  read arr[$i]
+  sum=$((sum+arr[i]))
+done
+echo "The sum is : $sum"
+
+
+
+
+
+
+
+//////     Math operation     //////
+
+a=5
+b=5
+sum=`expr $a + $b`
+echo "Sum is : $sum"
+
+sub=`expr $a - $b`
+echo "Sub is : $sub"
+
+mul=`expr $a \* $b`
+echo "Mul is : $mul"
+
+div=`expr $a / $b`
+echo "Div is : $div"
+
+
+
+
+
+/////     ifelse use for string       /////
+str='abc'
+if [ $str == 'abc' ]
+then
+ echo "Matched"
+ 
+else
+ echo "Not matched"
+fi
+
+
+
+
+
+
+////     while loop    //////
+i=1
+while [ $i -lt 12 ]
+do
+  echo $i
+  i=$((i+1))
+done
+
+
+
+
+
+
+/////    until     /////
+i=1
+until [ $i -eq 10 ]
+do
+ echo $i
+ i=$((i+1))
+done
+
+
+
+
+
+
+////    Function use kore sum    ////
+function add()
+{
+ par1=$1
+ par2=$2
+ sum=$((par1+par2))
+ echo $sum
+}
+ret=`add 10 10`
+echo $ret
+res=$((ret+3))
+echo $res
+
+
+
+
+
+
+////    Function use kore sum and avg    ////
+function add()
+{
+  echo "Total parameter: $#"
+  echo "$@"
+  for i in $@
+  do
+   sum=$((sum+i))
+  done
+  for i in $#
+  do
+   avg=$((sum/i))
+  done
+  echo "The sum is: $sum"
+  echo "The avg is: $avg"
+}
+add 1 6 5 9 6 9
+
+
+
+
+
+
+
+
+/////   Array use kore max number find   ////
+declare -a array
+array=(1 9 4 5 6 2 0 3)
+max=0
+for i in ${array[*]}
+do
+ if [ $i -gt $max ]
+ then 
+  max=$i
+ fi
+done
+echo "The max number is: $max"
+
+
+
+
+
+
+
+////    file read kora ///////
+readfile="arraysum.sh"
+while read line;
+do
+  echo "$line"
+done <$readfile
+
+readfile="FINAL.txt"
+while read l;
+do
+  echo "$l"
+done <$readfile
+
+cat FINAL.txt
+
+
+
+
+
+
+
+///////    Associate array    //////
+declare -A arr
+
+arr[asad]=401
+arr[bristy]=402
+arr[emran]=403
+
+for i in ${!arr[*]}
+do
+   echo "$i ==> ${arr[$i]} "
+done
+
+for val in ${arr[*]}
+do
+   echo "$val"
+done
+
+bristy ==> 402 
+emran ==> 403 
+asad ==> 401 
+402
+403
+401
+
+
+
+
+
+
+
+
+
+
+
+//////////      FCFS      /////////
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string inputFileName = "INPUT.txt";
+    ifstream input_file(inputFileName);
+    vector<int> p, arv, bt, pr;
+    int id, arrival_time, burst_time, priority;
+    string process_name, header;
+    vector<string> prcs;
+    getline(input_file, header);
+    int n = 0;
+    while (input_file >> id >> process_name >> burst_time >> arrival_time >> priority)
+    {
+        n++;
+        p.push_back(id);
+        prcs.push_back(process_name);
+        bt.push_back(burst_time);
+        arv.push_back(arrival_time);
+        pr.push_back(priority);
+    }
+    vector<int> comp(n, 0);
+    vector<int> wt(n, 0);
+    vector<int> tat(n, 0);
+    vector<int> completion_time(n, 0);
+    vector<int> remaining_bt(bt.begin(), bt.end());
+    int choice, time_quantum, idx, t;
+    double avgwt, avgtat;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - 1 - i; j++)
+        {
+            if (arv[j] > arv[j + 1])
+            {
+                swap(arv[j], arv[j + 1]);
+                swap(bt[j], bt[j + 1]);
+                swap(prcs[j], prcs[j + 1]);
+                swap(p[j], p[j + 1]);
+            }
+        }
+    }
+    comp[0] = arv[0] + bt[0];
+    tat[0] = comp[0] - arv[0];
+    wt[0] = tat[0] - bt[0];
+    for (int i = 1; i < n; i++)
+    {
+        if (arv[i] > comp[i - 1])
+            comp[i] = arv[i] + bt[i];
+        else
+            comp[i] = comp[i - 1] + bt[i];
+        tat[i] = comp[i] - arv[i];
+        wt[i] = tat[i] - bt[i];
+    }
+    cout << "Process\t\t  Arrival_Time\t\t   Burst_Time\t\t  Compile_Time\t\t  Waiting_Time\t\t  Turnaround_Time\t\t Working\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << prcs[i] << "\t\t" << arv[i] << "\t\t" << bt[i] << "\t\t" << comp[i] << "\t\t" << wt[i] << "\t\t" << tat[i] << "\t\t";
+        for (int j = 0; j < bt[i]; j++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+    avgwt = (double)accumulate(wt.begin(), wt.end(), 0) / n;
+    avgtat = (double)accumulate(tat.begin(), tat.end(), 0) / n;
+    cout << "\nAverage Waiting time: " << avgwt << "\n";
+    cout << "Average Turnaround time: " << avgtat << "\n\n";
+}
+
+
+
+
+
+
+
+
+
+
+
+/////////          RR            /////////
+
+ int choice, time_quantum, idx, t;
+    double avgwt, avgtat;
+    cout << "Enter the time quantum for Round Robin Scheduling: ";
+    cin >> time_quantum;
+    t = 0;
+    idx = 0;
+    std::ostringstream workingProcessStream;
+    workingProcessStream << "\nWorking Process";
+    while (true)
+    {
+        bool done = true;
+
+        for (int i = 0; i < n; i++)
+        {
+            if (remaining_bt[i] > 0)
+            {
+                done = false;
+
+                int quantum = min(time_quantum, remaining_bt[i]);
+                remaining_bt[i] -= quantum;
+                workingProcessStream << "\nFor " << prcs[i] << " - " << quantum << "\t\t";
+                t += quantum;
+                wt[i] += (t - bt[i] - arv[i]);
+                tat[i] += (t - arv[i]);
+                completion_time[i] = t;
+            }
+        }
+        if (done)
+            break;
+    }
+    workingProcessStream << endl;
+    cout << workingProcessStream.str();
+    cout << "Process\t  Arrival_Time\t   Burst_Time\t  Completion_Time\tWaiting_Time\tTurnaround_Time\n";
+    for (int i = 0; i < n; i++)
+    {
+        comp[i] = tat[i] + arv[i];
+        tat[i]=completion_time[i]-arv[i];
+        wt[i]=tat[i]-bt[i];
+        cout << prcs[i] << "\t\t" << arv[i] << "\t\t" << bt[i] << "\t\t" << completion_time[i] << "\t\t" << wt[i] << "\t\t" << tat[i] << "\t\t";
+        cout << endl;
+    }
+    avgwt = (double)accumulate(wt.begin(), wt.end(), 0) / n;
+    avgtat = (double)accumulate(tat.begin(), tat.end(), 0) / n;
+    cout << "\nAverage Waiting time: " << avgwt << "\n";
+    cout << "Average Turnaround time: " << avgtat << "\n\n";
+
+
+
+
+
+
+
+
+
+
+
+
+///////           Bankers           //////////
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int r,c,i,j,k;
+    ifstream file("if.txt");
+    file>>r>>c;
+    int R[r][c],A[r][c],N[k];
+    cout<<"\nRequired\n";
+    for(i=0; i<r; i++)
+    {
+        for(j=0; j<c; j++)
+        {
+
+            file>>R[i][j];
+            cout<<R[i][j]<<"\n";
+        }
+    }
+    cout<<"\nAllocated\n";
+    for(i=0; i<r; i++)
+    {
+        for(j=0; j<c; j++)
+        {
+            file>>A[i][j];
+            cout<<A[i][j]<<"\n";
+        }
+    }
+    cout<<"\nNeed\n";
+    for(i=0; i<r; i++)
+    {
+        for(j=0; j<c; j++)
+        {
+            N[i]=R[i][j]-A[i][j];
+            cout<<N[i]<<"\n";
+        }
+    }
+    int total_allocated=0,resources=12;
+    for(i=0; i<r-1; i++)
+    {
+        for(j=0; j<c; j++)
+        {
+            total_allocated+=A[i][j];
+        }
+    }
+    int available=resources-total_allocated;
+    cout<<"\nAvailable: "<<available;
+    file.close();
+    int temp;
+    for(i=0; i<r-1; i++)
+    {
+        for(j=0; j<r-1-i; j++)
+        {
+            if(N[j]>N[j+1])
+            {
+                swap(N[j],N[j+1]);
+                //swap(R[i][0],R[i+1][0]);
+                //swap(A[i][0],A[i+1][0]);
+            }
+        }
+    }
+    cout<<"\nSorted Need: \n";
+    for(i=0; i<r; i++)
+    {
+        cout<<N[i];
+        cout<<endl;
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
