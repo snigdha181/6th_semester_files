@@ -1,0 +1,27 @@
+ #if
+ if [  condition ]
+then 
+  
+fi
+
+
+#If Else
+if [  condition ]
+then 
+  
+else
+then
+
+fi
+
+#if - Else if
+if [  condition ]
+then 
+  
+elif [ condition ]
+then
+
+else
+then
+fi
+

@@ -1,0 +1,20 @@
+logical operation
+
+-gt {greater than}
+-lt {less than}
+-ge {grether or equal}
+-le {less or equal}
+-eq {equal}
+
+-a | && {And Operation}
+-o | || {OR Operation}
+!       {NOT Operation}
+
+For string
+
+==  {Check Equal}
+!=  {Not Equal}
+
+string  {if we write this it will check is the sting is enmpty or not}
+-z      {to check string length is zero or not}
+-n      {to check string lenght is not equal zero or not}
