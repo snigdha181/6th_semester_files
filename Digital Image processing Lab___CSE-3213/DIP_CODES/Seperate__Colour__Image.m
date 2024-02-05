@@ -1,0 +1,12 @@
+clc;
+close all;
+clear all;
+i1=imread("images/Tulips.jpg");
+r=i1(:,:,1);
+g=i1(:,:,2);
+b=i1(:,:,3);
+m=cat(3,uint8(r),uint8(g),uint8(b));
+subplot(221);imshow(m);title("Original Image");
+subplot(222);imshow(r);title("Red Image");
+subplot(223);imshow(g);title("Green Image");
+subplot(224);imshow(b);title("Blue Image");
